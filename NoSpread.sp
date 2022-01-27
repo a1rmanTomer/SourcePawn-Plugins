@@ -67,7 +67,3 @@ public Action callBack (int client, int args)
 			}
 	}
 }
-//tomer
-//test
-//tessttttt
-//xDDDDDDDDD
