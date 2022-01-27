@@ -92,5 +92,4 @@ public Action Command_MuteCT(int client, int args)
 			SetClientListeningFlags(i, VOICE_MUTED);
 		}
 	}
-}
- 
+} 
