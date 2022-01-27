@@ -25,5 +25,10 @@ public Plugin myinfo =
 
 public void OnPluginStart()
 {
-	
+	RegAdminCmd("sm_ac", Command_Ac, ADMFLAG_GENERIC);
+}
+
+//admin chat message:
+public Action Command_Ac(int client, int args){
+    
 }
