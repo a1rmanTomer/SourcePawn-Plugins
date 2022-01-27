@@ -5,9 +5,10 @@
 #define PLUGIN_AUTHOR "a1rman*"
 #define PLUGIN_VERSION "final"
 
-#include <sourcemod>
-#include <sdktools>
+#include <basecomm>
 #include <cstrike>
+#include <sdktools>
+#include <sourcemod>
 
 #pragma newdecls required
 
