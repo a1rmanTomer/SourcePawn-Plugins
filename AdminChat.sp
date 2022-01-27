@@ -8,7 +8,6 @@
 #include <sourcemod>
 #include <sdktools>
 #include <cstrike>
-//#include <sdkhooks>
 
 #pragma newdecls required
 
@@ -25,10 +24,16 @@ public Plugin myinfo =
 
 public void OnPluginStart()
 {
-	RegAdminCmd("sm_ac", Command_Ac, ADMFLAG_GENERIC);
+	RegConsoleCmd("sm_ac", AdminChat);
 }
 
 //admin chat message:
-public Action Command_Ac(int client, int args){
-    
+public Action AdminChat(int client, int args, int param1){
+    for (int i = 1; i<= MaxClients; i++){
+        if (!IsFakeClient(i) && IsClientConnected(i)){
+            if(CheckCommandAccess(i, "sm_admin", ADMFLAG_GENERIC, true)){
+                PrintToChat(i, args);
+            }
+        }
+    }
 }
