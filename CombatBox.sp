@@ -44,14 +44,14 @@ public Action callBack (int client, int args)
 				check = false;
 				ServerCommand("mp_teammates_are_enemies 0");
 				ServerCommand("rcon mp_friendlyfire 0");
-				PrintToChatAll("airman* u mad son of a bitch u turned OFF BOX!");
+				PrintToChatAll("%s Free-For-All Is Now OFF!");
 			}
 			else
 			{
 				check = true;
 				ServerCommand("mp_teammates_are_enemies 1");
 				ServerCommand("rcon mp_friendlyfire 1");
-				PrintToChatAll("airman* u mad son of a bitch u turned ON BOX!");
+				PrintToChatAll("%s Free-For-All Is Now ON!");
 			}
 
 	}
@@ -69,7 +69,7 @@ public Action callBack (int client, int args)
 			
 			ServerCommand("mp_teammates_are_enemies 1");
 			ServerCommand("rcon mp_friendlyfire 1");
-			PrintToChatAll("airman* u mad son of a bitch u turned ON BOX!");
+			PrintToChatAll("%s Free-For-All Is Now ON!");
 		}
 		
 		else if (StrEqual(arg,"0"))
@@ -77,7 +77,7 @@ public Action callBack (int client, int args)
 			check = false;
 			ServerCommand("mp_teammates_are_enemies 0");
 			ServerCommand("rcon mp_friendlyfire 0");
-			PrintToChatAll("airman* u mad son of a bitch u turned OFF BOX!");
+			PrintToChatAll("%s Free-For-All Is Now OFF!");
 		}
 
 	}
