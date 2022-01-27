@@ -63,7 +63,7 @@ public Action SVip(int client, int args){
 public Action TSay(int client, int args){
     for (int i = 1, i<=MaxClients, i++){
         if (!IsFakeClient(i) && IsClientConnected(i)){
-            if (GetClientTeam() == CS_TEAM_T){
+            if (GetClientTeam(i) == CS_TEAM_T){
                 PrintToChat(i, "%s " + args);
             }
         }
@@ -74,7 +74,7 @@ public Action TSay(int client, int args){
 public Action CtSay(int client, int args){
     for (int i = 1, i<=MaxClients, i++){
         if (!IsFakeClient(i) && IsClientConnected(i)){
-            if (GetClientTeam() == CS_TEAM_CT){
+            if (GetClientTeam(i) == CS_TEAM_CT){
                 PrintToChat(i, "%s " + args);
             }
         }
