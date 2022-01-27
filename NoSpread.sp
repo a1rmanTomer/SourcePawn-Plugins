@@ -45,7 +45,7 @@ public Action callBack (int client, int args)
 				ServerCommand("sv_cheats 1");
 				ServerCommand("weapon_accuracy_nospread 0");
 				ServerCommand("sv_cheats 0");
-				PrintToChatAll("[Gamers-Israel] Nospread is now OFF");
+				PrintToChatAll("%s \x04[Gamers-Israel] \x01Nospread is now OFF");
 
 			}
 			else
@@ -62,8 +62,7 @@ public Action callBack (int client, int args)
 				ServerCommand("weapon_recoil_suppression_shots 500");
 				ServerCommand("weapon_recoil_view_punch_extra 0");
 				ServerCommand("sv_cheats 0");
-				PrintToChatAll("[Gamers-Israel] Nospread is now ON");
-				
+				PrintToChatAll("%s \x04[Gamers-Israel] \x01Nospread is now ON");
 			}
 	}
 }
