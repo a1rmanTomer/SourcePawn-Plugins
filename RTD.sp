@@ -17,7 +17,7 @@ x1 בלתי נראה ל20 שניות ללא אפשרות לפגוע
 public Plugin myinfo = 
 {
 	name = "RTD",
-	author = "Pilo",
+	author = "Pilo + a1rman*",
 	description = "",
 	version = "1.1",
 	url = "https://forums.alliedmods.net/member.php?u=290157"
