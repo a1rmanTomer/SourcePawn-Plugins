@@ -26,7 +26,7 @@ public Plugin myinfo =
 
 public void OnPluginStart()
 {
-	RegConsoleCmd("sm_ac", AdminChat, "Admin Chat"); //admin chat message
+    RegConsoleCmd("sm_ac", AdminChat, "Admin Chat"); //admin chat message
     RegAdminCmd("sm_asay", ASay, ADMFLAG_GENERIC); //say to all
     RegConsoleCmd("sm_svip", SVip, "Vip Chat"); //vip chat
     RegAdminCmd("sm_tsay", TSay, ADMFLAG_GENERIC); //tsay
