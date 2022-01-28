@@ -9,6 +9,7 @@
 #include <cstrike>
 #include <sdktools>
 #include <sourcemod>
+#include <store>
 
 #pragma newdecls required
 
@@ -25,19 +26,22 @@ public Plugin myinfo =
 
 public void OnPluginStart()
 {
-	RegConsoleCmd("sm_ac", AdminChat); //admin chat message
+	RegConsoleCmd("sm_ac", AdminChat, "Admin Chat"); //admin chat message
     RegAdminCmd("sm_asay", ASay, ADMFLAG_GENERIC); //say to all
-    RegConsoleCmd("sm_svip", SVip); //vip chat
-    RegAdminCmd("sm_tsay", TSay); //tsay
-    RegAdminCmd("sm_ctsay", CtSay); //ctsay
+    RegConsoleCmd("sm_svip", SVip, "Vip Chat"); //vip chat
+    RegAdminCmd("sm_tsay", TSay, ADMFLAG_GENERIC); //tsay
+    RegAdminCmd("sm_ctsay", CtSay, ADMFLAG_GENERIC); //ctsay
 }
 
 //admin chat message:
-public Action AdminChat(int client, int args, int param1){
+public Action AdminChat(int client, int args){
+    char sText[192];
+	GetCmdArgString(sText, 192);
+	StripQuotes(sText);
     for (int i = 1; i<= MaxClients; i++){
         if (!IsFakeClient(i) && IsClientConnected(i)){
             if(CheckCommandAccess(i, "sm_admin", ADMFLAG_GENERIC, true)){
-                PrintToChat(i, args);
+                PrintToChat(i, sText);
             }
         }
     }
@@ -45,15 +49,24 @@ public Action AdminChat(int client, int args, int param1){
 
 //say to all:
 public Action ASay(int client, int args){
-    PrintToChatAll("%s " + args);
+    char sText[192];
+	GetCmdArgString(sText, 192);
+	StripQuotes(sText);
+    PrintToChatAll(sText);
 }
 
 //vip chat:
 public Action SVip(int client, int args){
-    for (int i = 1, i<=MaxClients, i++){
+    char sText[192];
+	GetCmdArgString(sText, 192);
+	StripQuotes(sText);
+    for (int i = 1; i<= MaxClients; i++){
         if (!IsFakeClient(i) && IsClientConnected(i)){
-            if (CheckCommandAccess(i, "sm_vip", A, true){
-                PrintToChat(i, "%s " + args);
+            if (Store_IsClientVIP(i)){
+                PrintToChat(i, sText);
+            }
+            else{
+                continue;
             }
         }
     }
@@ -61,10 +74,13 @@ public Action SVip(int client, int args){
 
 //tsay:
 public Action TSay(int client, int args){
+    char sText[192];
+	GetCmdArgString(sText, 192);
+	StripQuotes(sText);
     for (int i = 1, i<=MaxClients, i++){
         if (!IsFakeClient(i) && IsClientConnected(i)){
             if (GetClientTeam(i) == CS_TEAM_T){
-                PrintToChat(i, "%s " + args);
+                PrintToChat(i, "%s " + sText);
             }
         }
     }
@@ -72,10 +88,13 @@ public Action TSay(int client, int args){
 
 //ctsay:
 public Action CtSay(int client, int args){
+    char sText[192];
+	GetCmdArgString(sText, 192);
+	StripQuotes(sText);
     for (int i = 1, i<=MaxClients, i++){
         if (!IsFakeClient(i) && IsClientConnected(i)){
             if (GetClientTeam(i) == CS_TEAM_CT){
-                PrintToChat(i, "%s " + args);
+                PrintToChat(i, "%s " + sText);
             }
         }
     }
