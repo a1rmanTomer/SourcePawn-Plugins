@@ -25,5 +25,6 @@ public Plugin myinfo =
 
 public void OnPluginStart()
 {
-	
+    RegConsoleCMD("sm_calladmin", Command_CallAdmin, "Report a player to the connected admins");
 }
+
